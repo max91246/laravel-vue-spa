@@ -8,3 +8,18 @@
 .list-group img{
   width: 280px;
 }
+.outsite_div{
+  display: inline-block;
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #C9C9C9;
+  vertical-align: middle;
+  .insite_div{
+    width: 18px;
+    height: 18px;
+    margin: 0 auto;
+    margin-top: 5px;
+    border: 1px solid #000000;
+  }
+}

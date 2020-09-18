@@ -3,7 +3,10 @@
     <ul class="list-group">
       <li class="list-group-item" v-for="(value, key) in form.list">
         <router-link :to="'/settings/project_style_update/'+ value.id" class="nav-link" active-class="active">
-          {{ value.name }}<div :style="'background:' + value.color + '; width: 20px;height: 20px;display: inline-block;margin-left: 10px;'" ></div>
+          {{ value.name }}
+          <div class="outsite_div">
+            <div class="insite_div" :style="'background:' + value.color + '; '" ></div>
+          </div>
         </router-link>
       </li>
     </ul>
