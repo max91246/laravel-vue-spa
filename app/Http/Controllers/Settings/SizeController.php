@@ -17,9 +17,8 @@ class SizeController extends Controller
         if ($id){
             $list = Size::where('id', $id)->orderBy('created_at')->first()->toArray();
         }else{
-            $list = Size::limit(10)->orderBy('created_at')->get()->toArray();
+            $list = Size::limit(10)->orderBy('created_at')->get()->keyBy('id')->toArray();
         }
-
 
         return $this->json('200' , '請求成功', [
             'list' => $list

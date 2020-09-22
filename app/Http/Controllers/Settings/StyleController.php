@@ -16,7 +16,7 @@ class StyleController extends Controller
         if ($id){
             $list = Style::where('id', $id)->orderBy('created_at')->first()->toArray();
         }else{
-            $list = Style::limit(10)->orderBy('created_at')->get()->toArray();
+            $list = Style::limit(10)->orderBy('created_at')->get()->keyBy('id')->toArray();
         }
 
 

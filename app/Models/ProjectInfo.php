@@ -15,4 +15,14 @@ class ProjectInfo extends Model
         'admin',
         'amount'
     ];
+
+    public function size()
+    {
+        return $this->hasOne('App\Models\Size' , 'id' , 'size_id');
+    }
+
+    public function style()
+    {
+        return $this->hasOne('App\Models\Style' , 'id' , 'style_id');
+    }
 }

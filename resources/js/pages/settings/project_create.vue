@@ -21,6 +21,14 @@
       </div>
 
       <div class="form-group row">
+        <label class="col-md-3 col-form-label text-md-right">產品金額</label>
+        <div class="col-md-7">
+          <input v-model="form.amount" :class="{ 'is-invalid': form.errors.has('amount') }" class="form-control" type="text" name="amount">
+          <has-error :form="form" field="amount" />
+        </div>
+      </div>
+
+      <div class="form-group row">
         <label class="col-md-3 col-form-label text-md-right">產品圖片</label>
         <div class="col-md-7">
           <img :src="form.img">
@@ -59,6 +67,7 @@ export default {
     form: new Form({
       big_id : '',
       name: '',
+      amount : '',
       img: '',
     }),
     big_id_option:[]

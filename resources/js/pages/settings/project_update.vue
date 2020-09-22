@@ -21,9 +21,17 @@
       </div>
 
       <div class="form-group row">
+        <label class="col-md-3 col-form-label text-md-right">產品金額</label>
+        <div class="col-md-7">
+          <input v-model="form.list.amount" :class="{ 'is-invalid': form.errors.has('amount') }" class="form-control" type="text" name="amount">
+          <has-error :form="form" field="amount" />
+        </div>
+      </div>
+
+      <div class="form-group row">
         <label class="col-md-3 col-form-label text-md-right">產品圖片</label>
         <div class="col-md-7">
-          <img :src="form.list.img">
+          <img :src="form.list.img" width="300">
           <input  type="file" class="form-control-file"  @change.prevent="handleFileUpload">
         </div>
       </div>
@@ -56,6 +64,7 @@
         id : '',
         big_id : '',
         name: '',
+        amount : '',
         img: '',
       }),
       form: new Form({
@@ -102,6 +111,7 @@
         console.log(this.form.list)
         this.send.big_id = this.form.list.big_id
         this.send.name = this.form.list.name
+        this.send.amount = this.form.list.amount
         this.send.img = this.form.list.img
         this.send.id = this.form.list.id
         console.log(this.send)

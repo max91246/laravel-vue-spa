@@ -47,6 +47,13 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::post('update', 'Settings\StyleController@update');
     });
 
+    //產品明細
+    Route::group(['prefix' => 'project_info'], function () {
+        Route::any('list/{id?}', 'Settings\ProjectInfoController@list');
+        Route::post('insert', 'Settings\ProjectInfoController@insert');
+        Route::post('update', 'Settings\ProjectInfoController@update');
+    });
+
     // 图片上传
     Route::group(['prefix' => 'image', 'as' => 'image.'], function () {
         Route::post('upload', 'Settings\UploadController@upload')->name('upload');

@@ -99,11 +99,6 @@ export default {
           array: [
             {
               icon: 'sign-out-alt',
-              name: this.$t('project_info_list'),
-              route: 'settings.project_info_list'
-            },
-            {
-              icon: 'sign-out-alt',
               name: this.$t('project_info_create'),
               route: 'settings.project_info_create'
             }

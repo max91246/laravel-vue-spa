@@ -10,6 +10,7 @@ class Project extends Model
         'big_id',
         'name',
         'admin',
+        'amount',
         'img'
     ];
 
@@ -21,7 +22,7 @@ class Project extends Model
 
     public function project_info()
     {
-        return $this->hasMany('App\Models\ProjectInfo' , 'id' , 'big_id');
+        return $this->hasMany('App\Models\ProjectInfo' , 'project_id' , 'id');
     }
 
 }

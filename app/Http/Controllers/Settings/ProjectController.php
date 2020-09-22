@@ -17,14 +17,14 @@ class ProjectController extends Controller
         $big_id = $request->post('big_id');
 
 
-        $list = Project::when($id, function (Builder $query, $id) {
+        $list = Project::with('project_info' , 'project_info.size' , 'project_info.style')->when($id, function (Builder $query, $id) {
             return $query->where('id', $id);
         })->when($big_id, function (Builder $query, $big_id) {
             return $query->where('big_id', $big_id)->orderByDesc('created_at');
         })->get();
 
         return $this->json('200' , '請求成功', [
-            'list' => $list,
+            'list' => $list
         ]);
 
     }
@@ -73,14 +73,19 @@ class ProjectController extends Controller
         $post = $request->post();
 
         $rules = [
-
             'big_id' => 'required',
             'name' => 'required',
+            'amount' => 'required|numeric|min:0|not_in:0',
         ];
 
         $messages = [
             'big_id.required' => '产品大类不能為空',
             'name.required' => '请填写产品大类名称',
+            'amount.required' => '產品金額不能為空',
+            'amount.numeric' => '產品金額必須為數字',
+            'amount.min' => '產品金額不能小於1',
+            'amount.not_in' => '產品金額不能為0',
+
         ];
 
         $result = Validator::make($post, $rules, $messages);
@@ -104,15 +109,19 @@ class ProjectController extends Controller
         $post = $request->post();
 
         $rules = [
-            'id' => 'required',
             'big_id' => 'required',
             'name' => 'required',
+            'amount' => 'required|numeric|min:0|not_in:0',
         ];
 
         $messages = [
-            'name.required' => '产品名称不能為空',
-            'id.required' => 'id不能為空',
-            'big_id.required' => 'big_id不能為空',
+            'big_id.required' => '产品大类不能為空',
+            'name.required' => '请填写产品大类名称',
+            'amount.required' => '產品金額不能為空',
+            'amount.numeric' => '產品金額必須為數字',
+            'amount.min' => '產品金額不能小於1',
+            'amount.not_in' => '產品金額不能為0',
+
         ];
 
         $result = Validator::make($post, $rules, $messages);
