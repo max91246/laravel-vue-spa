@@ -125,7 +125,11 @@ export default {
         data: ''
       }).then(res => {
         this.big_id_option = res.data.data.list;
-        this.big_id = this.big_id_option[0].id
+        if (this.$route.params.big_id == undefined){
+          this.big_id = this.big_id_option[0].id
+        }else{
+          this.big_id = this.$route.params.big_id
+        }
 
       }).catch(e => {
         console.log(e)
@@ -140,7 +144,12 @@ export default {
         }).then(res => {
           this.product[this.big_id] = res.data.data.list;
           this.show_project = this.product[this.big_id]
-          this.product_id = this.show_project[0].id
+          if (this.$route.params.product_id == undefined){
+            this.product_id = this.show_project[0].id
+          }else{
+            this.product_id = this.$route.params.product_id
+          }
+
         }).catch(e => {
           console.log(e)
         })

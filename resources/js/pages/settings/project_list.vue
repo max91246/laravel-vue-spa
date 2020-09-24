@@ -28,7 +28,7 @@
             </router-link>
           </div>
           <div v-else>
-            <router-link to="/settings/project_info_create/" class="nav-link" active-class="active">
+            <router-link :to="'/settings/project_info_create/' + value.big_id + '/' + value.id" class="nav-link" active-class="active">
               新增商品明細
             </router-link>
           </div>

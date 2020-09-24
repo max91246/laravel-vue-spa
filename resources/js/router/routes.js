@@ -26,7 +26,7 @@ export default [
       { path: 'project_create', name: 'settings.project_create', component: page('settings/project_create.vue') },
       { path: 'project_update/:id', name: 'settings.project_update', component: page('settings/project_update.vue') },
       { path: 'project_info_list', name: 'settings.project_info_list', component: page('settings/project_info_list.vue') },
-      { path: 'project_info_create', name: 'settings.project_info_create', component: page('settings/project_info_create.vue') },
+      { path: 'project_info_create/:big_id?/:product_id?', name: 'settings.project_info_create', component: page('settings/project_info_create.vue') },
       { path: 'project_info_update/:id', name: 'settings.project_info_update', component: page('settings/project_info_update.vue') },
       { path: 'project_size_list', name: 'settings.project_size_list', component: page('settings/project_size_list.vue') },
       { path: 'project_size_create', name: 'settings.project_size_create', component: page('settings/project_size_create.vue') },
